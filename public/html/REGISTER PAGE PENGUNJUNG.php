@@ -101,31 +101,31 @@
         <!-- header -->
 
         <!-- main -->
-        <form>
+        <form action="controller_tambah_pengunjung.php" method="POST">
             <div class="md:grid-cols-1 px-60 pt-28">
                 <div>
                     <p class="text-white font-bold text-2xl mb-3">*Data Diri</p>
 
-                    <label for="nama" class="block mb-1 font-bold text-sm text-gray-400">Nama</label>
-                    <input type="text" id="nama" class="bg-white text-black rounded-lg w-full py-1 px-2 
+                    <label class="block mb-1 font-bold text-sm text-gray-400">Nama</label>
+                    <input type="text" name="nama" class="bg-white text-black rounded-lg w-full py-1 px-2 
                     placeholder:text-sm mb-2" placeholder="Masukkan nama anda" required>
                 </div>
 
                 <div>
-                    <label for="email" class="block mb-1 font-bold text-sm text-gray-400">Email</label>
-                    <input type="text" id="email" class="bg-white text-black rounded-lg w-full py-1 px-2 
+                    <label class="block mb-1 font-bold text-sm text-gray-400">Email</label>
+                    <input type="text" name="email" class="bg-white text-black rounded-lg w-full py-1 px-2 
                     placeholder:text-sm mb-2" placeholder="Masukkan email anda" required>
                 </div>
 
                 <div>
-                    <label for="telepon" class="block mb-1 font-bold text-sm text-gray-400">Nomor Telepon</label>
-                    <input type="text" id="telepon" class="bg-white text-black rounded-lg w-full py-1 px-2 
+                    <label class="block mb-1 font-bold text-sm text-gray-400">Nomor Telepon</label>
+                    <input type="text" name="telefon" class="bg-white text-black rounded-lg w-full py-1 px-2 
                     placeholder:text-sm mb-2" placeholder="Masukkan nomor telepon aktif" required>
                 </div>
 
                 <div>
-                    <label for="pass" class="block mb-1 font-bold text-sm text-gray-400">Password</label>
-                    <input type="password" id="pass" class="bg-white text-black rounded-lg w-full py-1 px-2 mb-5
+                    <label class="block mb-1 font-bold text-sm text-gray-400">Password</label>
+                    <input type="password" name="pass" class="bg-white text-black rounded-lg w-full py-1 px-2 mb-5
                     placeholder:text-sm" placeholder="Masukkan password anda" required>
                 </div>
 
