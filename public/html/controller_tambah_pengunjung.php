@@ -14,7 +14,7 @@ $inserted = $koneksi->query($sqlQuery);
 
 if($inserted){
   echo "Berhasil Insert Data Pengunjung";
-  header('location:tampildatapengunjung.php');
+  header('location:LANDING PAGE.html');
 }else{
   echo "Gagal Insert Data Pengunjung". $koneksi->error;
 }
