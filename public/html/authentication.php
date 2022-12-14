@@ -18,6 +18,6 @@
             header("Location: LANDING PAGE.html");   
         }  
         else{  
-            echo "<h1> Login failed. Invalid username or password.</h1>";  
+            header("Location: Login gagal.php");  
         }     
 ?>  
