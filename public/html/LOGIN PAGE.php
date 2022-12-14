@@ -24,19 +24,19 @@
                             class="text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl text-center">
                             Log In
                         </h1>
-                        <form class="space-y-4 md:space-y-6" action="#">
+                        <form class="space-y-4 md:space-y-6" action="authentication.php" method="POST">
                             <div>
-                                <label for="email"
+                                <label name="email"
                                     class="block mb-2 text-sm font-medium text-gray-500">
                                     Email</label>
-                                <input type="email" name="email" id="email"
+                                <input type="email" name="email"
                                     class="bg-gray-100 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5"
                                     placeholder="name@company.com" required="">
                             </div>
                             <div>
-                                <label for="password"
+                                <label name="password"
                                     class="block mb-2 text-sm font-medium text-gray-500">Password</label>
-                                <input type="password" name="password" id="password" placeholder="••••••••"
+                                <input type="password" name="pass" id="password" placeholder="••••••••"
                                     class="bg-gray-100 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5"
                                     required="">
                             </div>
@@ -61,6 +61,10 @@
                                 Baru di Sthira ? <a href="/public/html/REGISTER PAGE.html"
                                     class="font-medium hover:underline text-blue-500">Daftar</a>
                             </p>
+                            <?php if (isset($_GET['error'])) { ?>
+                                <p class="error"><?php echo $_GET['error']; ?></p>
+                                <?php } 
+                            ?>
                         </form>
                     </div>
                 </div>
