@@ -1,9 +1,9 @@
 <?php
 include "koneksi.php";
 
-$id=$_GET['id'];
+$email=$_GET['email'];
 
-$sql = "delete from registrasi where id='$id'";
+$sql = "delete from registrasi where email='$email'";
 
 $hasil = $koneksi->query($sql);
 if ($hasil === TRUE) {
