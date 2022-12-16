@@ -18,6 +18,6 @@
             header("Location: LANDING PAGE.html");   
         }  
         else{  
-            header("Location: LOGIN GAGAL.php");  
+            header("Location: Login gagal.php");  
         }     
 ?>  
