@@ -17,7 +17,7 @@ echo '</script>';
 
 <body>
     <main>
-        <section class="bg-no-repeat bg-cover bg-center md:bg-none" style="background-image: url(/public/img/unsplash-beach.jpg);">
+        <section class="bg-no-repeat bg-cover bg-center md:bg-none" style="background-image: url(/public/img/raja.jpg);">
             <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                 <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-blue-700">
                     <img class="w-8 h-8 mr-2" src="/public/img/logo plesiran.png"
