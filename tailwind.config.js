@@ -14,7 +14,8 @@ module.exports = {
       },
       backgroundImage: {
         'rinjani' : "url('/public/img/rinjani-unsplash.jpg')",
-        'beach' : "url('/public/img/unsplash-beach.jpg')"
+        'beach' : "url('/public/img/unsplash-beach.jpg')",
+        'padar' : "url('/public/img/padar.jpg')"
       }
     },
   },
