@@ -2,7 +2,6 @@
 session_start();
 include 'koneksi.php';
 $query=mysqli_query($koneksi, "select * from pengunjung");
-// $row=mysqli_fetch_array($query);
 ?>
 
 <html lang="en">
@@ -37,7 +36,6 @@ $query=mysqli_query($koneksi, "select * from pengunjung");
                         </svg>
                     </a>
                     <img class="h-10 w-10 rounded-full block" src="/public/img/bali gurl-unsplash.jpg" alt="">
-
                     <button data-collapse-toggle="navbar-sticky" type="button"
                         class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-controls="navbar-sticky" aria-expanded="false">
@@ -82,9 +80,9 @@ $query=mysqli_query($koneksi, "select * from pengunjung");
                 </div>
                 <div class="flex justify-start px-5 -mt-12 mb-5">
                     <span clspanss="block relative h-32 w-32">
-                        <img alt="Photo by aldi sigun on Unsplash" src="/public/img/bali gurl-unsplash.jpg"
-                            class="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1" />
-                    </span>
+                        <img alt="Photo by aldi sigun on Unsplash" src="imageView.php?image=<?php echo $row["foto"]; ?>"
+                            class="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1" />                                
+                        </span>
                 </div>
                 <div class="">
                     <div class="px-7 mb-8">

@@ -19,7 +19,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
     if (empty($email)) {
         header("Location: cobacoba.php?error=Isikan kolom email anda terlebih dahulu");
         exit();
-    }else if(empty($pass)) {
+    } else if (empty($pass)) {
         header("Location: cobacoba.php?error=Isikan kolom password anda terlebih dahulu");
         exit();
     } else {
@@ -35,19 +35,19 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                 $_SESSION['telefon'] = $row['telefon'];
                 $_SESSION['foto'] = $row['foto'];
                 $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
-                header("Location: cobacoba.php");
+                header("Location: PROFIL.php");
                 exit();
             } else {
-                header("Location: LOGIN PAGE.php?error=Email atau password yang anda ketikkan salah");
+                header("Location: PROFIL.php?error=Email atau password yang anda ketikkan salah");
                 exit();
             }
         } else {
-            header("Location: LOGIN PAGE.php?error=Kesalahan dalam penamaan tabel DB atau atribut tabel");
+            header("Location: PROFIL.php?error=Kesalahan dalam penamaan tabel DB atau atribut tabel");
             exit();
         }
     }
 } else {
-    header("Location: LOGIN PAGE.php");
+    header("Location: PROFIL.php");
     exit();
 }
 ?>
