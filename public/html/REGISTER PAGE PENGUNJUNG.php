@@ -42,7 +42,7 @@
                         <a href="LOGIN PAGE.php"
                             class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">Log
                             In</a>
-                        <a href="REGISTER PAGE PENGUNJUNG.php"
+                        <a href="logout.php"
                             class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-700 transition duration-300">Sign
                             Up</a>
                     </div>
@@ -61,7 +61,7 @@
             <!-- mobile menu -->
             <div class="hidden mobile-menu">
                 <ul class="">
-                    <li class="active"><a href="index.html"
+                    <li class="active"><a href="#.html"
                             class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Home</a></li>
                     <li><a href="ABOUT US PAGE.html"
                             class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">About Us</a>

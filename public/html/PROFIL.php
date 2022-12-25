@@ -26,7 +26,7 @@ $query=mysqli_query($koneksi, "select * from pengunjung");
                 </a>
 
                 <div class="flex md:order-2 space-x-3">
-                    <a href="/public/html/LOGIN PAGE.php"
+                    <a href="logout.php"
                         class="inline-flex items-center justify-center px-3 py-3 mr-3 text-base font-bold text-center text-blue-500 rounded-lg bg-white hover:bg-gray-300 focus:ring-4 focus:ring-gray-600">
                         Log Out
                         <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"

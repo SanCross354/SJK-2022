@@ -1,57 +1,3 @@
-<?php 
-
-session_start(); 
-
-include "koneksi.php";
-
-if (isset($_POST['email']) && isset($_POST['pass'])) {
-
-    function validate($data){
-       $data = trim($data);
-       $data = stripslashes($data);
-       $data = htmlspecialchars($data);
-       return $data;
-    }
-
-    $email = validate($_POST['email']);
-    $pass = validate($_POST['pass']);
-
-    if (empty($email)) {
-        header("Location: cobacoba.php?error=Isikan kolom email anda terlebih dahulu");
-        exit();
-    }else if(empty($pass)) {
-        header("Location: cobacoba.php?error=Isikan kolom password anda terlebih dahulu");
-        exit();
-    } else {
-        $sql = "SELECT * FROM pengunjung WHERE email='$email' AND pass='$pass'";
-        $result = mysqli_query($koneksi, $sql);
-
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['email'] === $email && $row['pass'] === $pass) {
-                echo "Logged in!";
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['nama'] = $row['nama'];
-                $_SESSION['telefon'] = $row['telefon'];
-                $_SESSION['foto'] = $row['foto'];
-                $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
-                header("Location: cobacoba.php");
-                exit();
-            } else {
-                header("Location: LOGIN PAGE.php?error=Email atau password yang anda ketikkan salah");
-                exit();
-            }
-        } else {
-            header("Location: index.php?error=Email atau password yang anda ketikkan salah");
-            exit();
-        }
-    }
-} else {
-    header("Location: LOGIN PAGE.php");
-    exit();
-}
-?>
-
 <html lang="en">
 
 <head>
@@ -78,7 +24,10 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                             class="text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl text-center">
                             Log In
                         </h1>
-                        <form class="space-y-4 md:space-y-6" method="POST">
+                        <form class="space-y-4 md:space-y-6" method="POST" action="authentication.php">
+                        <?php if (isset($_GET['error'])) { ?>
+                        <p class="error"><?php echo $_GET['error']; ?></p>
+                        <?php } ?>
                             <div>
                                 <label name="email"
                                     class="block mb-2 text-sm font-medium text-gray-500">
@@ -115,10 +64,6 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                                 Baru di Sthira ? <a href="/public/html/REGISTER PAGE PENGUNJUNG.php"
                                     class="font-medium hover:underline text-blue-500">Daftar</a>
                             </p>
-                            <?php if (isset($_GET['error'])) { ?>
-                                <p class="error"><?php echo $_GET['error']; ?></p>
-                                <?php } 
-                            ?>
                         </form>
                     </div>
                 </div>
