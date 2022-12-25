@@ -19,8 +19,9 @@ if (isset($_POST['button'])){
           $email = $_POST['email'];
           $telefon = $_POST['telefon'];
           $pass = $_POST['pass'];
-          $query = mysqli_query($koneksi, "INSERT INTO pengunjung (foto, nama, email, telefon, pass)
-                                     VALUES('".$imgContent."', '$nama','$email', '$telefon', '$pass')");
+          $caption = $_POST['caption'];
+          $query = mysqli_query($koneksi, "INSERT INTO pengunjung (foto, nama, email, telefon, pass, caption)
+                                     VALUES('".$imgContent."', '$nama','$email', '$telefon', '$pass', '$caption')");
           header("location : LOGIN PAGE.php");
       } else {
           echo '<span style="color:red"><b><u><i>Ukuruan File / Tipe File Tidak Sesuai</i></u></b></span>';

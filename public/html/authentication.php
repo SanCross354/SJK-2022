@@ -35,6 +35,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                 $_SESSION['telefon'] = $row['telefon'];
                 $_SESSION['foto'] = $row['foto'];
                 $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
+                $_SESSION['caption'] = $row['caption'];
                 header("Location: PROFIL.php");
                 exit();
             } else {

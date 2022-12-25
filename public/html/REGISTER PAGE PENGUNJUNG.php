@@ -116,6 +116,13 @@
                     placeholder:text-sm sm:text-sm block p-2.5" placeholder="Masukkan password anda" required>
                 </div>
 
+                <div>
+                    <label class="block mb-1 font-bold text-sm text-gray-400">Caption</label>
+                    <input type="text" name="caption" class="bg-white text-black py-1 px-2 
+                    placeholder:text-sm mb-2 sm:text-sm rounded-lg block w-full p-2.5"
+                        placeholder="Masukkan caption anda" required>
+                </div>
+
                 <div class="grid grid-cols-1 space-y-2">
                         <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Image</label>
                         <div class="flex items-center justify-center w-full">

@@ -88,11 +88,24 @@ $query=mysqli_query($koneksi, "select * from pengunjung");
                     <div class="px-7 mb-8">
                         <h2 class="text-3xl font-bold text-green-800 dark:text-gray-300"><?php echo $_SESSION['nama'] ?></h2>
                         <p class="text-gray-400 mt-2 dark:text-gray-400">Pengunjung</p>
-                        <p class="mt-2 text-gray-600 dark:text-gray-300">Haiii aku user baru nich, salken yachh</p>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300"><?php echo $_SESSION['caption'] ?></p>
                         <div
                             class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
                             <?php echo $_SESSION['email'] ?>
                         </div>
+                        <?php 
+                        if (mysqli_num_rows($query) === 1) {
+                             $row = mysqli_fetch_assoc($query);
+                
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['nama'] = $row['nama'];
+                $_SESSION['telefon'] = $row['telefon'];
+                $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
+                $_SESSION['caption'] = $row['caption']; 
+             
+             ?>             
+             <a class="text-gray-400 mt-2" href="edit_profil.php?id_pengunjung=<?= $row["id_pengunjung"] ?>">Edit Profil</a>
+        <?php }?>
                     </div>
                 </div>
             </div>
