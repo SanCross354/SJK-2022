@@ -1,3 +1,57 @@
+<?php 
+
+session_start(); 
+
+include "koneksi.php";
+
+if (isset($_POST['email']) && isset($_POST['pass'])) {
+
+    function validate($data){
+       $data = trim($data);
+       $data = stripslashes($data);
+       $data = htmlspecialchars($data);
+       return $data;
+    }
+
+    $email = validate($_POST['email']);
+    $pass = validate($_POST['pass']);
+
+    if (empty($email)) {
+        header("Location: cobacoba.php?error=Isikan kolom email anda terlebih dahulu");
+        exit();
+    }else if(empty($pass)) {
+        header("Location: cobacoba.php?error=Isikan kolom password anda terlebih dahulu");
+        exit();
+    } else {
+        $sql = "SELECT * FROM pengunjung WHERE email='$email' AND pass='$pass'";
+        $result = mysqli_query($koneksi, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+            $row = mysqli_fetch_assoc($result);
+            if ($row['email'] === $email && $row['pass'] === $pass) {
+                echo "Logged in!";
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['nama'] = $row['nama'];
+                $_SESSION['telefon'] = $row['telefon'];
+                $_SESSION['foto'] = $row['foto'];
+                $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
+                header("Location: cobacoba.php");
+                exit();
+            } else {
+                header("Location: LOGIN PAGE.php?error=Email atau password yang anda ketikkan salah");
+                exit();
+            }
+        } else {
+            header("Location: index.php?error=Email atau password yang anda ketikkan salah");
+            exit();
+        }
+    }
+} else {
+    header("Location: LOGIN PAGE.php");
+    exit();
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -24,7 +78,7 @@
                             class="text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl text-center">
                             Log In
                         </h1>
-                        <form class="space-y-4 md:space-y-6" action="authentication.php" method="POST">
+                        <form class="space-y-4 md:space-y-6" method="POST">
                             <div>
                                 <label name="email"
                                     class="block mb-2 text-sm font-medium text-gray-500">
@@ -34,7 +88,7 @@
                                     placeholder="name@company.com" required="">
                             </div>
                             <div>
-                                <label name="password"
+                                <label name="pass"
                                     class="block mb-2 text-sm font-medium text-gray-500">Password</label>
                                 <input type="password" name="pass" id="password" placeholder="••••••••"
                                     class="bg-gray-100 border border-gray-300 text-gray-600 sm:text-sm rounded-lg block w-full p-2.5"
@@ -54,7 +108,7 @@
                                 </div>
                                 <a href="/public/html/RESET PASSWORD.php" class="text-sm font-medium text-blue-600 hover:underline">Lupa Password ?</a>
                             </div>
-                            <button type="submit"
+                            <button type="submit" name="button"
                                 class="w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700">Sign
                                 in</button>
                             <p class="text-sm font-light text-gray-500">

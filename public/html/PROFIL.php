@@ -1,3 +1,10 @@
+<?php
+session_start();
+include 'koneksi.php';
+$query=mysqli_query($koneksi, "select * from pengunjung");
+// $row=mysqli_fetch_array($query);
+?>
+
 <html lang="en">
 
 <head>
@@ -81,12 +88,12 @@
                 </div>
                 <div class="">
                     <div class="px-7 mb-8">
-                        <h2 class="text-3xl font-bold text-green-800 dark:text-gray-300">Nimas Lara Dhuta</h2>
+                        <h2 class="text-3xl font-bold text-green-800 dark:text-gray-300"><?php echo $_SESSION['nama'] ?></h2>
                         <p class="text-gray-400 mt-2 dark:text-gray-400">Pengunjung</p>
                         <p class="mt-2 text-gray-600 dark:text-gray-300">Haiii aku user baru nich, salken yachh</p>
                         <div
                             class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
-                            nimasLDhuta@gmail.com
+                            <?php echo $_SESSION['email'] ?>
                         </div>
                     </div>
                 </div>

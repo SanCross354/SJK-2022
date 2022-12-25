@@ -30,19 +30,19 @@
                         </div>
                         <!-- Primary Navbar items -->
                         <div class="hidden md:flex items-center space-x-1 pl-72">
-                            <a href="/index.html"
+                            <a href="index.html"
                                 class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold ">Home</a>
-                            <a href="/public/html/ABOUT US PAGE.html"
+                            <a href="ABOUT US PAGE.html"
                                 class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">About
                                 Us</a>
                         </div>
                     </div>
                     <!-- Secondary Navbar items -->
                     <div class="hidden md:flex items-center space-x-3 ">
-                        <a href="/public/html/LOGIN PAGE.php"
+                        <a href="LOGIN PAGE.php"
                             class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">Log
                             In</a>
-                        <a href="/public/html/REGISTER PAGE PENGUNJUNG.php"
+                        <a href="REGISTER PAGE PENGUNJUNG.php"
                             class="py-2 px-2 font-medium text-white bg-blue-500 rounded hover:bg-blue-700 transition duration-300">Sign
                             Up</a>
                     </div>
@@ -61,13 +61,13 @@
             <!-- mobile menu -->
             <div class="hidden mobile-menu">
                 <ul class="">
-                    <li class="active"><a href="/index.html"
+                    <li class="active"><a href="index.html"
                             class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Home</a></li>
-                    <li><a href="/public/html/ABOUT US PAGE.html"
+                    <li><a href="ABOUT US PAGE.html"
                             class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">About Us</a>
-                    <li><a href="/public/html/LOGIN PAGE.php"
+                    <li><a href="LOGIN PAGE.php"
                             class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Log In</a>
-                    <li><a href="/public/html/REGISTER PAGE PENGUNJUNG.php"
+                    <li><a href="REGISTER PAGE PENGUNJUNG.php"
                             class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold">Sign Up</a>
 
                     </li>
@@ -85,7 +85,7 @@
 
 
         <!-- main -->
-        <form action="controller_tambah_pengunjung.php" method="POST">
+        <form action="controller_tambah_pengunjung.php" method="POST" enctype="multipart/form-data">
             <div class="md:grid-cols-1 px-60 pt-28">
                 <div>
                     <p class="text-white font-bold text-2xl mb-3">*Data Diri</p>
@@ -116,9 +116,33 @@
                     placeholder:text-sm sm:text-sm block p-2.5" placeholder="Masukkan password anda" required>
                 </div>
 
-                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+                <div class="grid grid-cols-1 space-y-2">
+                        <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Image</label>
+                        <div class="flex items-center justify-center w-full">
+                            <label
+                                class="flex flex-col rounded-lg border-4 border-dashed w-full h-60 p-10 group text-center">
+                                <div class="h-full w-full text-center flex flex-col items-center justify-center">
+                                    <!---<svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>-->
+                                    <div class="flex flex-auto max-h-48 w-2/5 mx-auto -mt-10">
+                                        <img class="has-mask h-36 object-center"
+                                            src="https://img.freepik.com/free-vector/image-upload-concept-landing-page_52683-27130.jpg?size=338&ext=jpg"
+                                            alt="freepik image">
+                                    </div>
+                                    <p class="pointer-none text-gray-500 "><span class="text-sm">Drag and drop</span>
+                                        files here <br /> or <a href="" id=""
+                                            class="text-blue-600 hover:underline">select a file</a> from your computer
+                                    </p>
+                                </div>
+                                <input type="file" name="image" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+
+                <input type="submit" name="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
                  focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
-                  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"></button>
             </div>
         </form>
         <!-- main -->
