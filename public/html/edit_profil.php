@@ -35,7 +35,7 @@ $caption = $_POST['caption'];
 
 <body class="bg-gray-400"">
     <div class=" w-full max-w-xs flex flex-col items-center justify-center px-6 pt-48 mx-auto">
-    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST">
         <h1 class="text-center font-bold font-serif">EDIT PROFIL</h1>
         <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
@@ -64,7 +64,7 @@ $caption = $_POST['caption'];
         <div class="flex items-center justify-between">
             <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                type="button" name="button">
+                type="submit" name="button">
                 Update
             </button>
         </div>

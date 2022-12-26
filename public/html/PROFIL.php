@@ -1,7 +1,9 @@
 <?php
 session_start();
 include 'koneksi.php';
-$query=mysqli_query($koneksi, "select * from pengunjung");
+$akun = $_SESSION['id_pengunjung'];
+$query=mysqli_query($koneksi, "select * from pengunjung where id_pengunjung = $akun");
+$baris = mysqli_fetch_array($query);
 ?>
 
 <html lang="en">
@@ -80,32 +82,31 @@ $query=mysqli_query($koneksi, "select * from pengunjung");
                 </div>
                 <div class="flex justify-start px-5 -mt-12 mb-5">
                     <span clspanss="block relative h-32 w-32">
-                        <img alt="Photo by aldi sigun on Unsplash" src="imageView.php?image=<?php echo $row["foto"]; ?>"
+                        <img alt="Photo by aldi sigun on Unsplash" src="uploads/<?php echo $baris['foto']?>"
                             class="mx-auto object-cover rounded-full h-24 w-24 bg-white p-1" />                                
                         </span>
                 </div>
                 <div class="">
                     <div class="px-7 mb-8">
-                        <h2 class="text-3xl font-bold text-green-800 dark:text-gray-300"><?php echo $_SESSION['nama'] ?></h2>
+                        <h2 class="text-3xl font-bold text-green-800 dark:text-gray-300"><?php echo $baris['nama'] ?></h2>
                         <p class="text-gray-400 mt-2 dark:text-gray-400">Pengunjung</p>
-                        <p class="mt-2 text-gray-600 dark:text-gray-300"><?php echo $_SESSION['caption'] ?></p>
+                        <p class="mt-2 text-gray-600 dark:text-gray-300"><?php echo $baris['caption'] ?></p>
                         <div
                             class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
-                            <?php echo $_SESSION['email'] ?>
+                            <?php echo $baris['email'] ?>
                         </div>
-                        <?php 
-                        if (mysqli_num_rows($query) === 1) {
-                             $row = mysqli_fetch_assoc($query);
-                
-                $_SESSION['email'] = $row['email'];
-                $_SESSION['nama'] = $row['nama'];
-                $_SESSION['telefon'] = $row['telefon'];
-                $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
-                $_SESSION['caption'] = $row['caption']; 
-             
-             ?>             
-             <a class="text-gray-400 mt-2" href="edit_profil.php?id_pengunjung=<?= $row["id_pengunjung"] ?>">Edit Profil</a>
-        <?php }?>
+                        
+        <?php while($row = mysqli_fetch_array($query)) {?>
+            <table hidden>
+            <tr>
+                <td><?= $row["id_pengunjung"] ?></td>
+                <td><?= $row["nama"] ?></td>
+                <td><?= $row["email"] ?></td>
+                <td><?= $row["telefon"] ?></td>
+                <td><?= $row["caption"] ?></td>
+            </tr></table>
+            
+        <?php }?><a class="text-white" href="edit_profil.php?id_pengunjung=<?= $_SESSION["id_pengunjung"] ?>">Edit Profil</a> 
                     </div>
                 </div>
             </div>

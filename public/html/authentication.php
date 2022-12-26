@@ -39,11 +39,11 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                 header("Location: PROFIL.php");
                 exit();
             } else {
-                header("Location: PROFIL.php?error=Email atau password yang anda ketikkan salah");
+                header("Location: LOGIN PAGE.php?error=Email atau password yang anda ketikkan salah");
                 exit();
             }
         } else {
-            header("Location: PROFIL.php?error=Kesalahan dalam penamaan tabel DB atau atribut tabel");
+            header("Location: LOGIN PAGE.php?Email atau password yang anda ketikkan salah");
             exit();
         }
     }

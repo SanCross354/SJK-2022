@@ -1,32 +1,46 @@
-<?php
-// session_start();
-include 'koneksi.php';
-if (isset($_POST['button'])){   
-    if(!isset($_FILES['image']['tmp_name'])){
-      echo '<span style="color:red"><b><u><i>Pilih file gambar</i></u></b></span>';
-    } else {
-      $fileName = basename($_FILES["image"]["name"]); 
-      $fileType = pathinfo($fileName, PATHINFO_EXTENSION);
-      $file_size = $_FILES['image']['size'];
+<?php 
+require_once("koneksi.php");
 
-      // Allow certain file formats 
-      $allowTypes = array('jpg','png','jpeg','gif');
+if(isset($_POST['button'])) {
+  $nama = $_POST['nama'];
+  $email = $_POST['email'];
+  $telefon = $_POST['telefon'];
+  $pass = $_POST['pass'];
+  $caption = $_POST['caption'];
 
-      if(in_array($fileType, $allowTypes)) {
-          $image = $_FILES['image']['tmp_name']; 
-          $imgContent = addslashes(file_get_contents($image));
-          $nama = $_POST['nama'];
-          $email = $_POST['email'];
-          $telefon = $_POST['telefon'];
-          $pass = $_POST['pass'];
-          $caption = $_POST['caption'];
-          $query = mysqli_query($koneksi, "INSERT INTO pengunjung (foto, nama, email, telefon, pass, caption)
-                                     VALUES('".$imgContent."', '$nama','$email', '$telefon', '$pass', '$caption')");
-          header("location : LOGIN PAGE.php");
-      } else {
-          echo '<span style="color:red"><b><u><i>Ukuruan File / Tipe File Tidak Sesuai</i></u></b></span>';
-      }
-    }  
-} else {
-  echo "Gagal Insert Data Pengunjung". $koneksi->error;
-};
+    $folder = "uploads/";
+    $image_file=$_FILES['image']['name'];
+     $file = $_FILES['image']['tmp_name'];
+     $path = $folder . $image_file;
+     $target_file=$folder.basename($image_file);
+     $imageFileType=pathinfo($target_file,PATHINFO_EXTENSION);
+
+    //Allow only JPG, JPEG, PNG & GIF etc formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
+         $error[] = 'Sorry, only JPG, JPEG, PNG & GIF files are allowed';
+    }
+
+    //Set image upload size 
+  if ($_FILES["image"]["size"] > 8048576) {
+       $error[] = 'Sorry, your image is too large. Upload less than 8 MB in size.';
+    }
+
+    if(!isset($error)) {
+        //move image to the folder 
+        move_uploaded_file($file,$target_file); 
+        $result = mysqli_query($koneksi,"INSERT INTO pengunjung (nama, email, telefon, pass, foto, caption) VALUES ('$nama', '$email', '$telefon', '$pass', '$image_file', '$caption')"); 
+
+        if($result) {
+            $image_success=1;
+      header("Location: LOGIN PAGE.php");
+        } else {
+            echo 'Something went wrong'; 
+        }
+    }
+}
+
+if(isset($error)){ 
+    foreach ($error as $error) { 
+    echo '<div class="message">'.$error.'</div><br>';
+    }
+}
