@@ -1,3 +1,8 @@
+<?php
+session_start();
+include 'koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,60 +16,73 @@
 </head>
 
 <body>
-    <header>
-        <nav class="px-2 sm:px-4 py-2.5 bg-blue-700 fixed w-full z-20 top-0 left-0 border-b border-blue-600">
-            <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="#" class="flex items-center">
-                    <img src="/public/img/logo plesiran.png" class="h-6 mr-3 sm:h-9" alt="Sthira Logo">
-                    <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">PLESIRAN</span>
-                </a>
-
-                <div class="flex md:order-2 space-x-3">
-                    <a href="/public/html/LOGIN PAGE.php"
-                        class="inline-flex items-center justify-center px-3 py-3 mr-3 text-base font-bold text-center text-blue-500 rounded-lg bg-white hover:bg-gray-300 focus:ring-4 focus:ring-gray-600">
-                        Log Out
-                        <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </a>
-                    <img class="h-10 w-10 rounded-full block" src="/public/img/bali gurl-unsplash.jpg" alt="">
-
-                    <button data-collapse-toggle="navbar-sticky" type="button"
-                        class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-sticky" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clip-rule="evenodd"></path>
+    <!-- Header -->
+    <!-- Navbar goes here -->
+    <nav class="bg-white shadow-lg fixed w-full z-20 top-0 left-0 border-b">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <!-- Website Logo -->
+                        <a href="#" class="flex items-center py-4">
+                            <img src="/public/img/logo plesiran.png" class="h-6 mr-3 sm:h-9" alt="Sthira Logo">
+                            <span
+                                class="self-center text-xl font-semibold whitespace-nowrap text-gray-600">PLESIRAN</span>
+                        </a>
+                    </div>
+                    <!-- Primary Navbar items -->
+                    <div class="hidden md:flex items-center space-x-1">
+                        <a href="DASHBOARD.php"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Dashboard</a>
+                        <a href="PROFIL.php"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Profil</a>
+                        <a href="UPLOAD POST PAGE.php"
+                            class="py-4 px-2 text-blue-500 border-b-4 border-blue-500 font-semibold">Upload</a>
+                        <a href="POSTINGAN.php"
+                            class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Postingan</a>
+                    </div>
+                </div>
+                <!-- Secondary Navbar items -->
+                <div class="hidden md:flex items-center space-x-3 ">
+                    <a href="LOGIN PAGE.php"
+                        class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-blue-500 hover:text-white transition duration-300">Log
+                        Out</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <svg class=" w-6 h-6 text-gray-500 hover:text-blue-500 " x-show="!showMenu" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                    <ul
-                        class="flex flex-col p-4 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
-                        <li>
-                            <a href="/public/html/PROFIL.html"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-                                aria-current=" page">Profil</a>
-                        </li>
-                        <li>
-                            <a href="/public/html/UPLOAD POST PAGE.php"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Upload</a>
-                        </li>
-                        <li>
-                            <a href="/public/html/POSTINGAN.html"
-                                class="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Postingan</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+        <!-- mobile menu -->
+        <div class="hidden mobile-menu">
+            <ul class="">
+                <li><a href="DASHBOARD.php"
+                        class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Dashboard</a></li>
+                <li><a href="PROFIL.php"
+                        class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Profil</a>
+                <li class="active"><a href="UPLOAD POST PAGE.php"
+                        class="block text-sm px-2 py-4 text-white bg-blue-500 font-semibold">Upload</a>
+                <li><a href="POSTINGAN.php"
+                        class="block text-sm px-2 py-4 hover:bg-blue-400 transition duration-300">Postingan</a>
+                </li>
+        </div>
+        <script>
+            const btn = document.querySelector("button.mobile-menu-button");
+            const menu = document.querySelector(".mobile-menu");
+
+            btn.addEventListener("click", () => {
+                menu.classList.toggle("hidden");
+            });
+        </script>
+    </nav>
+    <!-- Header -->
 
     <section>
         <div class="pt-28 min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-no-repeat bg-cover relative items-center"
@@ -88,8 +106,7 @@
                         <label class="text-sm font-bold text-gray-500 tracking-wide">Caption</label>
                         <input
                             class="text-base p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
-                            name="caption"
-                            type="text" placeholder="Masukkan Caption">
+                            name="caption" type="text" placeholder="Masukkan Caption">
                     </div>
                     <div class="grid grid-cols-1 space-y-2">
                         <label class="text-sm font-bold text-gray-500 tracking-wide">Attach Image</label>
@@ -121,7 +138,7 @@
                         <input type="submit" name="submit"
                             class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4  rounded-full tracking-wide
                                     font-semibold  focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
-                </input>
+                        </input>
                     </div>
                 </form>
             </div>

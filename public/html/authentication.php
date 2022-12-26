@@ -36,7 +36,7 @@ if (isset($_POST['email']) && isset($_POST['pass'])) {
                 $_SESSION['foto'] = $row['foto'];
                 $_SESSION['id_pengunjung'] = $row['id_pengunjung'];
                 $_SESSION['caption'] = $row['caption'];
-                header("Location: PROFIL.php");
+                header("Location: DASHBOARD.php");
                 exit();
             } else {
                 header("Location: LOGIN PAGE.php?error=Email atau password yang anda ketikkan salah");
