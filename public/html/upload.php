@@ -8,6 +8,8 @@ if(isset($_POST['submit'])) {
     $caption = $_POST['caption'];
     
     $folder = "postingan/";
+    $nama = $_SESSION['nama'];
+    $fotoProfil = $_SESSION['foto'];
     $image_file=$_FILES['image']['name'];
     $file = $_FILES['image']['tmp_name'];
     $path = $folder . $image_file;
@@ -27,11 +29,11 @@ if(isset($_POST['submit'])) {
     if(!isset($error)) {
         //move image to the folder 
         move_uploaded_file($file,$target_file); 
-        $result = mysqli_query($koneksi,"INSERT INTO postingan (image, caption) VALUES ('$image_file', '$caption')"); 
+        $result = mysqli_query($koneksi,"INSERT INTO postingan (nama, fotoProfil,image, caption) VALUES ('$nama', '$fotoProfil','$image_file', '$caption')"); 
 
         if($result) {
             $image_success=1;
-      header("Location: cobacoba.php");
+      header("Location: POSTINGAN.php");
         } else {
             echo 'Something went wrong'; 
         }

@@ -1257,6 +1257,10 @@ video {
   background-image: url('/public/img/rinjani-unsplash.jpg');
 }
 
+.bg-rinjani {
+  background-image: url('/public/img/rinjani-unsplash.jpg');
+}
+
 .bg-cover {
   background-size: cover;
 }

@@ -9,7 +9,7 @@
     <title>DASHBOARD PAGE</title>
 </head>
 
-<body>
+<body class="bg-cover bg-[url('/public/img/rinjani-unsplash.jpg')] bg-center]"> 
     <!-- Header -->
     <!-- Navbar goes here -->
     <nav class="bg-white shadow-lg fixed w-full z-20 top-0 left-0 border-b">
